@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "16575743123",
+    "project_id": "lecture-1e98f",
+    "storage_bucket": "lecture-1e98f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:16575743123:android:fcb1a884841f11a7f6f966",
+        "android_client_info": {
+          "package_name": "com.example.firebaselecture"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "16575743123-geagi2offeh4hr740i5pu9e5ei5qk70m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.firebaselecture",
+            "certificate_hash": "8acef23c285bcbf1c7287b2dd69482cdd1fd5fa9"
+          }
+        },
+        {
+          "client_id": "16575743123-kaai7c8ecvk7ljck3k6r30ao3o6fsd2a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpgeNI9XKdWl9h63GQlO3QW8Soy_wz6MY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "16575743123-kaai7c8ecvk7ljck3k6r30ao3o6fsd2a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

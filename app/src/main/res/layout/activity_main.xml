@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#7EDFEB"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome Back 😇"
+        android:textColor="#000000"
+        android:textSize="48dp"
+        android:textStyle="bold"
+        android:layout_marginTop="50sp"
+        android:gravity="center"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter your credential for Login"
+        android:gravity="center"
+        android:layout_margin="5dp"
+        android:textColor="#000000"
+        android:textStyle="normal"
+        android:textSize="15sp"/>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Your Email id"
+        android:gravity="center"
+        app:boxStrokeColor="#F00808"
+        android:textColorHint="@color/black"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="25sp"
+        android:layout_marginLeft="25sp"
+        app:startIconDrawable="@drawable/gmail"
+        app:boxCornerRadiusBottomStart="20sp"
+        app:boxCornerRadiusTopEnd="20sp"
+        app:boxStrokeWidth="2dp"
+        app:endIconMode="none"
+        app:boxCornerRadiusTopStart="20sp"
+        app:boxCornerRadiusBottomEnd="20sp">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:id="@+id/username"
+            android:inputType="text"
+            android:layout_height="wrap_content"
+            android:textColor="#000000" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint=" Email Password"
+        android:gravity="center"
+        app:boxStrokeColor="#F00808"
+        android:textColorHint="@color/black"
+        android:layout_marginRight="25sp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="25sp"
+        app:endIconMode="password_toggle"
+        app:startIconDrawable="@drawable/padlock"
+        app:boxCornerRadiusBottomStart="20sp"
+        app:boxCornerRadiusTopEnd="20sp"
+        app:boxStrokeWidth="2dp"
+        app:boxCornerRadiusTopStart="20sp"
+        app:boxCornerRadiusBottomEnd="20sp">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:id="@+id/password"
+            android:inputType="textPassword"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"/>
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="50sp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#0F525B"
+            android:text="Sign Up"
+            android:id="@+id/singup"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="25sp"
+            android:layout_marginTop="15sp"
+            android:layout_marginLeft="30sp"
+            android:layout_marginRight="30sp"/>
+
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#0F525B"
+            android:text="Log in"
+            android:gravity="center"
+            android:id="@+id/login"
+            android:textColor="#ffffff"
+            android:textSize="25sp"
+            android:layout_marginTop="15sp"
+            android:layout_marginLeft="30sp"
+            android:layout_marginRight="30sp"/>
+
+
+    </LinearLayout>
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/bt_sign_in"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp" />
+
+</LinearLayout>

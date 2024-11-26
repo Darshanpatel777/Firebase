@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#B3F0B5"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Home_page">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign up "
+        android:textColor="#000000"
+        android:textSize="80sp"
+        android:textStyle="bold"
+        android:layout_marginTop="50sp"
+        android:gravity="center"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Your Name"
+        android:gravity="center"
+        app:boxStrokeColor="#F00808"
+        android:textColorHint="@color/black"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="25sp"
+        android:layout_marginLeft="25sp"
+        app:startIconDrawable="@drawable/user"
+        app:boxCornerRadiusBottomStart="20sp"
+        app:boxCornerRadiusTopEnd="20sp"
+        app:boxStrokeWidth="2dp"
+        app:endIconMode="none"
+        app:boxCornerRadiusTopStart="20sp"
+        app:boxCornerRadiusBottomEnd="20sp">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:id="@+id/name"
+            android:inputType="text"
+            android:layout_height="wrap_content"
+            android:textColor="#000000" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Your Email id"
+        android:gravity="center"
+        app:boxStrokeColor="#F00808"
+        android:textColorHint="@color/black"
+        android:layout_marginTop="10sp"
+        android:layout_marginRight="25sp"
+        android:layout_marginLeft="25sp"
+        app:startIconDrawable="@drawable/gmail"
+        app:boxCornerRadiusBottomStart="20sp"
+        app:boxCornerRadiusTopEnd="20sp"
+        app:boxStrokeWidth="2dp"
+        app:endIconMode="none"
+        app:boxCornerRadiusTopStart="20sp"
+        app:boxCornerRadiusBottomEnd="20sp">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:id="@+id/mail2"
+            android:inputType="text"
+            android:layout_height="wrap_content"
+            android:textColor="#000000" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint=" Create Password"
+        android:gravity="center"
+        app:boxStrokeColor="#F00808"
+        android:textColorHint="@color/black"
+        android:layout_marginRight="25sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="25sp"
+        app:endIconMode="password_toggle"
+        app:startIconDrawable="@drawable/padlockcc"
+        app:boxCornerRadiusBottomStart="20sp"
+        app:boxCornerRadiusTopEnd="20sp"
+        app:boxStrokeWidth="2dp"
+        app:boxCornerRadiusTopStart="20sp"
+        app:boxCornerRadiusBottomEnd="20sp">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:id="@+id/crtpass"
+            android:inputType="textPassword"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"/>
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Comfirm Password"
+        android:gravity="center"
+        app:boxStrokeColor="#F00808"
+        android:textColorHint="@color/black"
+        android:layout_marginRight="25sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="25sp"
+        app:endIconMode="password_toggle"
+        app:startIconDrawable="@drawable/padlock"
+        app:boxCornerRadiusBottomStart="20sp"
+        app:boxCornerRadiusTopEnd="20sp"
+        app:boxStrokeWidth="2dp"
+        app:boxCornerRadiusTopStart="20sp"
+        app:boxCornerRadiusBottomEnd="20sp">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:id="@+id/cnfpass"
+            android:inputType="textPassword"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#0F525B"
+            android:text="Sign Up"
+            android:id="@+id/sing_up2"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_marginTop="30sp"
+            android:layout_marginLeft="30sp"
+            android:layout_marginRight="30sp"/>
+
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:backgroundTint="#0F525B"-->
+<!--        android:text="Log in...?"-->
+<!--        android:gravity="center"-->
+<!--        android:textColor="#000000"-->
+<!--        android:textSize="30sp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:layout_marginTop="15sp"-->
+<!--        android:layout_marginLeft="30sp"-->
+<!--        android:layout_marginRight="30sp"/>-->
+
+
+</LinearLayout>

@@ -25,12 +25,14 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
-    Button singup, login;
+    Button sing_up1, login,btn;
     SignInButton sign_in;
 
     GoogleSignInClient googleSignInClient;
@@ -43,9 +45,31 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mAuth = FirebaseAuth.getInstance();
 
-        singup = findViewById(R.id.singup);
+        sing_up1 = findViewById(R.id.sing_up1);
         login = findViewById(R.id.login);
         sign_in = findViewById(R.id.bt_sign_in);
+
+        btn = findViewById(R.id.btn);
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseReference myRef = database.getReference("user").push();
+                String key = myRef.getKey();
+                myRef.child("name").setValue("creative");
+                myRef.child("number").setValue("456123895");
+                myRef.child("key").setValue(key);
+            }
+        });
+
+
+
+
+
+
 
         GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken("16575743123-kaai7c8ecvk7ljck3k6r30ao3o6fsd2a.apps.googleusercontent.com")
@@ -67,11 +91,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // create account
-        singup.setOnClickListener(new View.OnClickListener() {
+        sing_up1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                signup("abc@gmail.com", "123456");
+                startActivity(new Intent(MainActivity.this,Home_page.class));
+
+//                signup("abc@gmail.com", "123456");
             }
         });
 

@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="#B3F0B5"
+    android:background="#BAEBBC"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Home_page">
@@ -21,34 +21,7 @@
         android:layout_marginTop="50sp"
         android:gravity="center"/>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter Your Name"
-        android:gravity="center"
-        app:boxStrokeColor="#F00808"
-        android:textColorHint="@color/black"
-        android:layout_marginTop="100dp"
-        android:layout_marginRight="25sp"
-        android:layout_marginLeft="25sp"
-        app:startIconDrawable="@drawable/user"
-        app:boxCornerRadiusBottomStart="20sp"
-        app:boxCornerRadiusTopEnd="20sp"
-        app:boxStrokeWidth="2dp"
-        app:endIconMode="none"
-        app:boxCornerRadiusTopStart="20sp"
-        app:boxCornerRadiusBottomEnd="20sp">
 
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:id="@+id/name"
-            android:inputType="text"
-            android:layout_height="wrap_content"
-            android:textColor="#000000" />
-
-
-    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -57,7 +30,7 @@
         android:gravity="center"
         app:boxStrokeColor="#F00808"
         android:textColorHint="@color/black"
-        android:layout_marginTop="10sp"
+        android:layout_marginTop="80sp"
         android:layout_marginRight="25sp"
         android:layout_marginLeft="25sp"
         app:startIconDrawable="@drawable/gmail"
@@ -109,32 +82,6 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Comfirm Password"
-        android:gravity="center"
-        app:boxStrokeColor="#F00808"
-        android:textColorHint="@color/black"
-        android:layout_marginRight="25sp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="25sp"
-        app:endIconMode="password_toggle"
-        app:startIconDrawable="@drawable/padlock"
-        app:boxCornerRadiusBottomStart="20sp"
-        app:boxCornerRadiusTopEnd="20sp"
-        app:boxStrokeWidth="2dp"
-        app:boxCornerRadiusTopStart="20sp"
-        app:boxCornerRadiusBottomEnd="20sp">
-
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:id="@+id/cnfpass"
-            android:inputType="textPassword"
-            android:layout_height="wrap_content"
-            android:textColor="#000000"/>
-    </com.google.android.material.textfield.TextInputLayout>
 
 
         <Button

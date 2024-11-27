@@ -107,6 +107,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 login("abc@gmail.com", "123456");
+
+//                startActivity(new Intent(MainActivity.this,Login_page.class));
+
             }
         });
     }

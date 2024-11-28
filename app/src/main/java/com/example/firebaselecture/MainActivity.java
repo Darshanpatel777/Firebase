@@ -20,6 +20,7 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -40,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
     Button sing_up1, login, btn;
     SignInButton google;
 
+    TextInputEditText username,password;
+
     GoogleSignInClient googleSignInClient;
 
 
@@ -53,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
         sing_up1 = findViewById(R.id.sing_up1);
         login = findViewById(R.id.login);
         google = findViewById(R.id.bt_sign_in);
+        username = findViewById(R.id.username);
+        password = findViewById(R.id.password);
 
         btn = findViewById(R.id.btn);
 
@@ -167,9 +172,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                login("abc@gmail.com", "123456");
+                oldlogin(username.getText().toString(),password.getText().toString());
 
-//                startActivity(new Intent(MainActivity.this,Login_page.class));
+                if(false)
+                {
+                    Toast.makeText(MainActivity.this, "err3r3", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    startActivity(new Intent(MainActivity.this,DataStore.class));
+                }
+
 
             }
         });
@@ -230,30 +243,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    // create account Sing up
-    void signup(String email, String password) {
-        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    // Sign in success, update UI with the signed-in user's information
-                    Log.d("=========", "createUserWithEmail:success");
-                    FirebaseUser user = mAuth.getCurrentUser();
-                    Toast.makeText(MainActivity.this, "Authentication Completed", Toast.LENGTH_SHORT).show();
 
-                } else {
-                    Log.w("---e----", "createUserWithEmail:failure", task.getException());
-                    Toast.makeText(MainActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
-
-                }
-            }
-
-        });
-    }
 
 
     // old Account login
-    void login(String email, String password) {
+    void oldlogin(String email, String password) {
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {

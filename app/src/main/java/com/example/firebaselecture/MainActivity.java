@@ -89,9 +89,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-
 //        Store data delete karva mate
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,7 +100,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
 
 
 
@@ -173,7 +169,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
                 if(!username.getText().toString().isEmpty() && !password.getText().toString().isEmpty())
                 {
                     oldlogin(username.getText().toString(),password.getText().toString());
@@ -183,7 +178,6 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else
                 {
-
                     Toast.makeText(MainActivity.this, "Please Enter You Email-Id", Toast.LENGTH_SHORT).show();
                 }
             }

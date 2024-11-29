@@ -21,7 +21,6 @@ public class DataStore extends AppCompatActivity {
 
         txt = findViewById(R.id.txt);
 
-
-        txt.setText("Ok Done");
+        txt.getText();
     }
 }

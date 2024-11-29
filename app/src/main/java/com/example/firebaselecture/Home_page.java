@@ -46,18 +46,17 @@ public class Home_page extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                signup(name.getText().toString(),crtpass.getText().toString());
-
                 if(!name.getText().toString().isEmpty() && !crtpass.getText().toString().isEmpty())
                 {
-                    Toast.makeText(Home_page.this, "please enter you mail", Toast.LENGTH_SHORT).show();
+
+                    signup(name.getText().toString(),crtpass.getText().toString());
 
                     startActivity(new Intent(Home_page.this,MainActivity.class));
                     finish();
                 }
                 else
                 {
-                    Toast.makeText(Home_page.this, "error", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Home_page.this, "Please Enter You Data", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -74,12 +73,15 @@ public class Home_page extends AppCompatActivity {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d("=========", "createUserWithEmail:success");
                     FirebaseUser user = mAuth.getCurrentUser();
-                    Toast.makeText(Home_page.this, "Authentication Completed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Home_page.this, "Authentication Completed",
+                            Toast.LENGTH_SHORT).show();
 
 
                 } else {
+                    // if sign in fails , display a message to the user.
                     Log.w("---e----", "createUserWithEmail:failure", task.getException());
-                    Toast.makeText(Home_page.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Home_page.this, "Authentication failed.",
+                            Toast.LENGTH_SHORT).show();
 
                 }
             }

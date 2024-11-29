@@ -162,6 +162,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 startActivity(new Intent(MainActivity.this, Home_page.class));
+                finish();
 
 //                signup("abc@gmail.com", "123456");
             }
@@ -172,18 +173,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                oldlogin(username.getText().toString(),password.getText().toString());
 
-                if(false)
+                if(!username.getText().toString().isEmpty() && !password.getText().toString().isEmpty())
                 {
-                    Toast.makeText(MainActivity.this, "err3r3", Toast.LENGTH_SHORT).show();
+                    oldlogin(username.getText().toString(),password.getText().toString());
+
+                    startActivity(new Intent(MainActivity.this,DataStore.class));
+                    finish();
                 }
                 else
                 {
-                    startActivity(new Intent(MainActivity.this,DataStore.class));
+
+                    Toast.makeText(MainActivity.this, "Please Enter You Email-Id", Toast.LENGTH_SHORT).show();
                 }
-
-
             }
         });
     }
@@ -242,10 +244,6 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
     }
 
-
-
-
-
     // old Account login
     void oldlogin(String email, String password) {
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -254,9 +252,10 @@ public class MainActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d("---d---", "signInWithEmail:success");
-                    FirebaseUser user = mAuth.getCurrentUser();
 
-                    Toast.makeText(MainActivity.this, "Authentication success.", Toast.LENGTH_SHORT).show();
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    Toast.makeText(MainActivity.this, "Authentication success.",
+                            Toast.LENGTH_SHORT).show();
 
                 } else {
                     // If sign in fails, display a message to the user.

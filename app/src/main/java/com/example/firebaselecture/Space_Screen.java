@@ -40,6 +40,7 @@ public class Space_Screen extends AppCompatActivity {
                 {
                     startActivity(new Intent(Space_Screen.this,DataStore.class)
                             .putExtra("userid",sp.getInt("uid",0)));
+                    finish();
                 }
                 else
                 {
@@ -48,7 +49,7 @@ public class Space_Screen extends AppCompatActivity {
                     finish();
                 }
             }
-        },2000);
+        },1000);
 
     }
 }

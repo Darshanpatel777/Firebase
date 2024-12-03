@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     Button sing_up1, login, btn;
     SignInButton google;
 
-    TextInputEditText username,password;
+    TextInputEditText mail,pass;
 
     GoogleSignInClient googleSignInClient;
 
@@ -56,14 +56,14 @@ public class MainActivity extends AppCompatActivity {
         sing_up1 = findViewById(R.id.sing_up1);
         login = findViewById(R.id.login);
         google = findViewById(R.id.bt_sign_in);
-        username = findViewById(R.id.username);
-        password = findViewById(R.id.password);
+        mail = findViewById(R.id.mail);
+        pass = findViewById(R.id.pass);
 
         btn = findViewById(R.id.btn);
 
 
 //        firebase ma data add, delete ,show karva mate
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
+//        FirebaseDatabase database = FirebaseDatabase.getInstance();
 
 
         // unique key vagar data Store Karva mate
@@ -90,16 +90,16 @@ public class MainActivity extends AppCompatActivity {
 
 
 //        Store data delete karva mate
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                //  Store data delete karva mare --> key,value
-                DatabaseReference myRef = database.getReference("user").child("-OCcf5oosWDJYPqeKCjs");
-                myRef.removeValue();
-
-            }
-        });
+//        btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                //  Store data delete karva mare --> key,value
+//                DatabaseReference myRef = database.getReference("user").child("-OCcf5oosWDJYPqeKCjs");
+//                myRef.removeValue();
+//
+//            }
+//        });
 
 
 
@@ -136,7 +136,10 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken("16575743123-kaai7c8ecvk7ljck3k6r30ao3o6fsd2a.apps.googleusercontent.com").requestEmail().build();
+        GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken("16575743123-kaai7c8ecvk7ljck3k6r30ao3o6fsd2a.apps.googleusercontent.com")
+                .requestEmail()
+                .build();
 
         googleSignInClient = GoogleSignIn.getClient(MainActivity.this, googleSignInOptions);
 
@@ -149,6 +152,7 @@ public class MainActivity extends AppCompatActivity {
                 // Start activity for result
                 startActivityForResult(intent, 100);
 
+
             }
         });
 
@@ -158,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 startActivity(new Intent(MainActivity.this, Home_page.class));
-                finish();
+//                finish();
 
 //                signup("abc@gmail.com", "123456");
             }
@@ -169,12 +173,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(!username.getText().toString().isEmpty() && !password.getText().toString().isEmpty())
+                if(!mail.getText().toString().isEmpty() && !pass.getText().toString().isEmpty())
                 {
-                    oldlogin(username.getText().toString(),password.getText().toString());
+                    oldlogin(mail.getText().toString(),pass.getText().toString());
+//
+                    Space_Screen.edit.putBoolean("status", true);
+                    Space_Screen.edit.putInt("uid",0);
+                    Space_Screen.edit.apply();
 
-                    startActivity(new Intent(MainActivity.this,DataStore.class));
+                    startActivity(new Intent(MainActivity.this,DataStore.class)
+                            .putExtra("userid",0));
                     finish();
+
                 }
                 else
                 {
@@ -216,6 +226,14 @@ public class MainActivity extends AppCompatActivity {
 
 //                                    Log.d(TAG, "onComplete: ");
                                     displayToast("Firebase authentication successful");
+
+
+                                    Space_Screen.edit.putBoolean("status", true);
+                                    Space_Screen.edit.putInt("uid",0);
+                                    Space_Screen.edit.apply();
+
+                                    startActivity(new Intent(MainActivity.this,DataStore.class));
+                                    finish();
 
                                 } else {
                                     // When task is unsuccessful display Toast

@@ -77,6 +77,7 @@ public class Home_page extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
 
 
+
                 } else {
                     // if sign in fails , display a message to the user.
                     Log.w("---e----", "createUserWithEmail:failure", task.getException());
@@ -87,5 +88,17 @@ public class Home_page extends AppCompatActivity {
             }
 
         });
+    }
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+
+
+        }
     }
 }

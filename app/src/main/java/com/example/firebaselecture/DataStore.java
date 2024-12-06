@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -25,7 +26,7 @@ import java.util.HashMap;
 
 public class DataStore extends AppCompatActivity {
 
-   Button add;
+    Button add;
     private FirebaseAuth mAuth;
 
     @Override
@@ -38,83 +39,56 @@ public class DataStore extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
 
+        int userid = getIntent().getIntExtra("userid", 5);
 
-        int user = getIntent().getIntExtra("userid", 5);
 
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(DataStore.this,Addnew.class));
+                startActivity(new Intent(DataStore.this, Addnew.class)
+                        .putExtra("userid",userid));
             }
         });
 
 
         //store data show karva mate
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myref = database.getReference("user");
 
         ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
+                if (dataSnapshot.getValue() != null)
+                {
+                    HashMap alldata = (HashMap<Object, Object>) dataSnapshot.getValue();
 
-                HashMap alldata = (HashMap<Object, Object>) dataSnapshot.getValue();
-                        for(Object data : alldata.values())
-                        {
-                            HashMap userdata = (HashMap<Object,Object>) data;
-//
-                            Log.d("===response===", "onDataChange: " + userdata.get("number"));
-                            Log.d("===response===", "onDataChange: " + userdata.get("name"));
-                        }
+                    for (Object data : alldata.values())
+                    {
+                        HashMap userdata = (HashMap<Object, Object>) data;
+
+                        Log.d("===response===", "onDataChange: " + userdata.get("number"));
+                        Log.d("===response===", "onDataChange: " + userdata.get("name"));
+                    }
+                }
+                else
+                {
+                    Toast.makeText(DataStore.this, "Data not found", Toast.LENGTH_SHORT).show();
+                }
+
+
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
-                Log.d("+-+-+-", "onCancelled: "+error.toException());
+                Log.d("+-+-+-", "onCancelled: " + error.toException());
             }
         };
-
         myref.addValueEventListener(postListener);
 
-
-
-
-
-
-
-
-        //store data show karva mate
-//                DatabaseReference myRef = database.getReference("user");
-
-//           btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                ValueEventListener postListener = new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//
-//                        HashMap alldata = (HashMap<Object, Object>) dataSnapshot.getValue();
-//                        for(Object data : alldata.values())
-//                        {
-//                            HashMap userdata = (HashMap<Object,Object>) data;
-//
-//                            Log.d("===response===", "onDataChange: " + userdata.get("number"));
-//                            Log.d("===response===", "onDataChange: " + userdata.get("name"));
-//                        }
-//                    }
-//                    @Override
-//                    public void onCancelled(DatabaseError databaseError) {
-//                        // Getting Post failed, log a message
-//                        Log.w("===error===", "loadPost:onCancelled", databaseError.toException());
-//                    }
-//                };
-//                myRef.addValueEventListener(postListener);
-//            }
-//        });
 
     }
 }

@@ -9,6 +9,23 @@
     tools:context=".DataStore">
 
 
+
+    <androidx.appcompat.widget.SearchView
+        android:layout_width="match_parent"
+        android:id="@+id/search"
+        android:layout_height="?actionBarSize"
+        tools:ignore="MissingClass,MissingConstraints" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/pop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="10sp"
+        android:backgroundTint="#857C7C"
+        android:src="@drawable/dot"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <Button
         android:layout_width="wrap_content"
         android:id="@+id/add"

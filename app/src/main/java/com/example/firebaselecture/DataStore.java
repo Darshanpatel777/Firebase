@@ -81,6 +81,12 @@ public class DataStore extends AppCompatActivity {
 
                         Log.d("===response===", "onDataChange: " + userdata.get("number"));
                         Log.d("===response===", "onDataChange: " + userdata.get("name"));
+                        Log.d("===response===", "onDataChange: " + userdata.get("Email id"));
+
+//
+                        txtname.setText(userdata.get("name").toString());
+                        txtnumber.setText(userdata.get("number").toString());
+                        txtemail.setText(userdata.get("Email id").toString());
                     }
                 }
                 else

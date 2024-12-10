@@ -3,6 +3,7 @@ package com.example.firebaselecture;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -17,6 +18,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.Firebase;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Addnew extends AppCompatActivity {
 
@@ -55,6 +57,28 @@ public class Addnew extends AppCompatActivity {
                 myref.child("key").setValue(key);
 
 
+                // Retrieve the phone number input from the user
+                String email = emailid.getText().toString();
+                //email required check
+                if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
+                {
+                    emailid.setError("Please enter a valid email address");
+                    return;
+                }
+
+                //number  required check
+                String number = phone.getText().toString();
+                if (number.isEmpty()) {
+                    phone.setError("number if required");
+                    return;
+                }
+                else if (number.length() != 10) // number 10 digit ma j aava aena mate
+                {
+                    phone.setError("Phone number cannot exceed 10 digits");
+                    return;
+                }
+
+
                 if (!name.getText().toString().isEmpty() && !phone.getText().toString().isEmpty() && !emailid.getText().toString().isEmpty())
                 {
                     startActivity(new Intent(Addnew.this,DataStore.class));
@@ -70,4 +94,7 @@ public class Addnew extends AppCompatActivity {
 
     }
 }
+
+
+
 

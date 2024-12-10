@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         mail = findViewById(R.id.mail);
         pass = findViewById(R.id.pass);
 
-        btn = findViewById(R.id.btn);
+//        btn = findViewById(R.id.btn);
 
 
 //        firebase ma data add, delete ,show karva mate

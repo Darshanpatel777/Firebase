@@ -5,12 +5,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.menu.MenuAdapter;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -26,8 +28,11 @@ import java.util.HashMap;
 
 public class DataStore extends AppCompatActivity {
 
+    TextView txtname,txtemail,txtnumber;
     Button add;
+    ListView list;
     private FirebaseAuth mAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,9 @@ public class DataStore extends AppCompatActivity {
         setContentView(R.layout.activity_data_store);
 
         add = findViewById(R.id.add);
+        txtname = findViewById(R.id.txtname);
+        txtemail = findViewById(R.id.txtemail);
+        txtnumber = findViewById(R.id.txtnumber);
         mAuth = FirebaseAuth.getInstance();
 
 
@@ -54,8 +62,10 @@ public class DataStore extends AppCompatActivity {
         });
 
 
+
         //store data show karva mate
         DatabaseReference myref = database.getReference("user");
+
 
         ValueEventListener postListener = new ValueEventListener() {
             @Override

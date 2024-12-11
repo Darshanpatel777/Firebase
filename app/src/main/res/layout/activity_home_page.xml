@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="#BAEBBC"
+    android:background="#0A447E"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Home_page">
@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sign up "
-        android:textColor="#000000"
+        android:textColor="#ffffff"
         android:textSize="80sp"
         android:textStyle="bold"
         android:layout_marginTop="50sp"
@@ -87,7 +87,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#0F525B"
+            android:backgroundTint="#000000"
             android:text="Sign Up"
             android:id="@+id/sing_up2"
             android:gravity="center"

@@ -34,8 +34,8 @@
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/search"
-            android:layout_width="0dp"
-            android:layout_height="?actionBarSize"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
             android:layout_gravity="center"
             android:layout_margin="5dp"
             android:layout_weight="0.5"
@@ -46,61 +46,70 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:backgroundTint="#857C7C"
             android:src="@drawable/dot"
+            android:layout_margin="3dp"
             tools:ignore="MissingConstraints" />
 
     </LinearLayout>
 
 
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <ListView
+        android:id="@+id/listview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="380dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="120sp">
 
-        <TextView
-            android:id="@+id/txtname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#B38585"
-            android:textSize="30sp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            tools:ignore="MissingConstraints" />
+    </ListView>
 
 
+<!--    <LinearLayout-->
+<!--        android:id="@+id/linearLayout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginBottom="380dp"-->
+<!--        android:orientation="vertical"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
 
-        <TextView
-            android:id="@+id/txtnumber"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:background="#A6A2A2"
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            tools:ignore="MissingConstraints" />
+<!--        <TextView-->
+<!--            android:id="@+id/txtname"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="#B38585"-->
+<!--            android:textSize="30sp"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textStyle="bold"-->
+<!--            tools:ignore="MissingConstraints" />-->
 
 
 
-        <TextView
-            android:id="@+id/txtemail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2sp"
-            android:background="#BDA28B"
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            tools:ignore="MissingConstraints" />
+<!--        <TextView-->
+<!--            android:id="@+id/txtnumber"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="2dp"-->
+<!--            android:background="#A6A2A2"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="30sp"-->
+<!--            android:textStyle="bold"-->
+<!--            tools:ignore="MissingConstraints" />-->
 
-    </LinearLayout>
+
+
+<!--        <TextView-->
+<!--            android:id="@+id/txtemail"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="2sp"-->
+<!--            android:background="#BDA28B"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="30sp"-->
+<!--            android:textStyle="bold"-->
+<!--            tools:ignore="MissingConstraints" />-->
+
+<!--    </LinearLayout>-->
 
 
     <Button

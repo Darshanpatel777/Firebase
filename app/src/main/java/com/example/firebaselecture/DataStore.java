@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,14 +25,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class DataStore extends AppCompatActivity {
 
     TextView txtname,txtemail,txtnumber;
     Button add;
-    ListView list;
+    ListView listview;
     private FirebaseAuth mAuth;
+
 
 
     @Override
@@ -41,9 +44,10 @@ public class DataStore extends AppCompatActivity {
         setContentView(R.layout.activity_data_store);
 
         add = findViewById(R.id.add);
-        txtname = findViewById(R.id.txtname);
-        txtemail = findViewById(R.id.txtemail);
-        txtnumber = findViewById(R.id.txtnumber);
+        listview = findViewById(R.id.listview);
+//        txtname = findViewById(R.id.txtname);
+//        txtemail = findViewById(R.id.txtemail);
+//        txtnumber = findViewById(R.id.txtnumber);
         mAuth = FirebaseAuth.getInstance();
 
 
@@ -51,6 +55,9 @@ public class DataStore extends AppCompatActivity {
 
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+
+
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,9 +91,9 @@ public class DataStore extends AppCompatActivity {
                         Log.d("===response===", "onDataChange: " + userdata.get("Email id"));
 
 //
-                        txtname.setText(userdata.get("name").toString());
-                        txtnumber.setText(userdata.get("number").toString());
-                        txtemail.setText(userdata.get("Email id").toString());
+//                        txtname.setText(userdata.get("name").toString());
+//                        txtnumber.setText(userdata.get("number").toString());
+//                        txtemail.setText(userdata.get("Email id").toString());
                     }
                 }
                 else

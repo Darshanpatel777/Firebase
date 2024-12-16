@@ -48,6 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#857C7C"
+            android:id="@+id/pop"
             android:src="@drawable/dot"
             android:layout_margin="3dp"
             tools:ignore="MissingConstraints" />

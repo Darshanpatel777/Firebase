@@ -6,17 +6,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.view.menu.MenuAdapter;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -32,10 +26,11 @@ public class DataStore extends AppCompatActivity {
 
     TextView txtname,txtemail,txtnumber;
     Button add;
-    ListView listview;
+    ListView list;
     private FirebaseAuth mAuth;
 
 
+    ArrayList<HashMap<Object, Object>> datalist = new ArrayList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +39,7 @@ public class DataStore extends AppCompatActivity {
         setContentView(R.layout.activity_data_store);
 
         add = findViewById(R.id.add);
-        listview = findViewById(R.id.listview);
+        list = findViewById(R.id.listview);
 //        txtname = findViewById(R.id.txtname);
 //        txtemail = findViewById(R.id.txtemail);
 //        txtnumber = findViewById(R.id.txtnumber);
@@ -54,7 +49,13 @@ public class DataStore extends AppCompatActivity {
         int userid = getIntent().getIntExtra("userid", 5);
 
 
+
+
+
+
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
+
 
 
 
@@ -90,10 +91,25 @@ public class DataStore extends AppCompatActivity {
                         Log.d("===response===", "onDataChange: " + userdata.get("name"));
                         Log.d("===response===", "onDataChange: " + userdata.get("Email id"));
 
-//
+                        HashMap<Object,Object> item = new HashMap<>();
+                        item.put("name", userdata.get("name"));
+                        item.put("number", userdata.get("number"));
+
+                        datalist.add(item);
+
+////
 //                        txtname.setText(userdata.get("name").toString());
 //                        txtnumber.setText(userdata.get("number").toString());
 //                        txtemail.setText(userdata.get("Email id").toString());
+
+
+
+//                        list.setAdapter(new MyAdpater(DataStore.this,datalist));
+
+                        MyAdpater adpater = new MyAdpater(DataStore.this,datalist);
+                        list.setAdapter(adpater);
+
+
                     }
                 }
                 else
@@ -111,6 +127,9 @@ public class DataStore extends AppCompatActivity {
             }
         };
         myref.addValueEventListener(postListener);
+
+
+
 
 
     }

@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="#7EDFEB"
+    android:background="#12406D"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Welcome Back 😇"
-        android:textColor="#000000"
+        android:textColor="#ffffff"
         android:textSize="45dp"
         android:textStyle="bold"
         android:layout_marginTop="50sp"
@@ -29,7 +29,7 @@
         android:text="Enter your credential for Login"
         android:gravity="center"
         android:layout_margin="5dp"
-        android:textColor="#000000"
+        android:textColor="#ffffff"
         android:textStyle="normal"
         android:textSize="15sp"/>
 
@@ -58,7 +58,7 @@
             android:id="@+id/mail"
             android:inputType="text"
             android:layout_height="wrap_content"
-            android:textColor="#000000" />
+            android:textColor="#ffffff" />
 
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -88,7 +88,7 @@
             android:id="@+id/pass"
             android:inputType="textPassword"
             android:layout_height="wrap_content"
-            android:textColor="#000000"/>
+            android:textColor="#ffffff"/>
 
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -102,12 +102,13 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#0F525B"
+            android:backgroundTint="#000000"
             android:text="Sign Up"
             android:id="@+id/sing_up1"
             android:gravity="center"
             android:textColor="#ffffff"
             android:textSize="25sp"
+            android:textStyle="bold"
             android:layout_marginTop="15sp"
             android:layout_marginLeft="30sp"
             android:layout_marginRight="30sp"/>
@@ -120,9 +121,10 @@
             android:layout_marginLeft="30sp"
             android:layout_marginTop="15sp"
             android:layout_marginRight="30sp"
-            android:backgroundTint="#0F525B"
+            android:backgroundTint="#000000"
             android:gravity="center"
             android:text="Log in"
+            android:textStyle="bold"
             android:textColor="#ffffff"
             android:textSize="25sp" />
 

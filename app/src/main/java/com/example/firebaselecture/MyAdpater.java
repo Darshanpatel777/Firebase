@@ -15,13 +15,13 @@ import java.util.HashMap;
 
 public class MyAdpater extends BaseAdapter {
 
-    private Context context;
+    private DataStore dataStore;
     private ArrayList<HashMap<Object, Object>> datalist;
 
-    public MyAdpater(Context context, ArrayList<HashMap<Object, Object>> datalist) {
+    public MyAdpater(DataStore dataStore, ArrayList<HashMap<Object, Object>> datalist) {
 
 
-        this.context = context;
+        this.dataStore = dataStore;
         this.datalist = datalist;
 
     }
@@ -44,25 +44,22 @@ public class MyAdpater extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-//        View vv = LayoutInflater.from(context).inflate(R.layout.myview, parent, false);
-//
-//        TextView name = vv.findViewById(R.id.sname), num = vv.findViewById(R.id.snum);
-//
-//        name.setText(datalist.get(position).getName());
-//        num.setText(datalist.get(position).getNum());
 
-        View vv = LayoutInflater.from(context).inflate(R.layout.myview,parent,false);
+        Context DataStore;
+        View vv = LayoutInflater.from(dataStore).inflate(R.layout.myview,parent,false);
 
 
-        TextView name  = vv.findViewById(R.id.sname);
-        TextView number  = vv.findViewById(R.id.snum);
+        TextView sname  = vv.findViewById(R.id.sname);
+        TextView snum  = vv.findViewById(R.id.snum);
+        TextView email  = vv.findViewById(R.id.email);
 
         HashMap<Object, Object> data = datalist.get(position);
 
-        name.setText((CharSequence) data.get("name"));
-        number.setText((CharSequence) data.get("number"));
+        sname.setText( data.get("name").toString());
+        snum.setText( data.get("number").toString());
+        email.setText( data.get("Email id").toString());
 
 
-        return convertView;
+        return vv;
     }
 }

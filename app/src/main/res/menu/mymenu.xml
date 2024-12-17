@@ -3,8 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/Logout"
-        android:title="Logout"/>
+        android:id="@+id/Exit"
+        android:title="Exit"/>
     <item
         android:id="@+id/Callhistory"
         android:title="Call history"/>

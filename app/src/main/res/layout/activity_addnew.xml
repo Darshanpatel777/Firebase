@@ -38,6 +38,7 @@
         app:boxCornerRadiusTopEnd="20sp"
         app:boxCornerRadiusTopStart="20sp"
         app:boxStrokeColor="#09EF12"
+        app:startIconDrawable="@drawable/user"
         app:boxStrokeWidth="2dp"
         app:endIconMode="none"
         app:layout_constraintTop_toBottomOf="@+id/textView">
@@ -62,6 +63,7 @@
         android:hint="Email id"
         android:layout_marginRight="30sp"
         android:layout_marginLeft="30sp"
+        app:startIconDrawable="@drawable/gmail"
         android:textColorHint="@color/black"
         app:boxCornerRadiusBottomEnd="20sp"
         app:boxCornerRadiusBottomStart="20sp"
@@ -92,6 +94,7 @@
         android:hint="Phone number"
         android:layout_marginRight="30sp"
         android:layout_marginLeft="30sp"
+        app:startIconDrawable="@drawable/telephone"
         android:textColorHint="@color/black"
         app:boxCornerRadiusBottomEnd="20sp"
         app:boxCornerRadiusBottomStart="20sp"

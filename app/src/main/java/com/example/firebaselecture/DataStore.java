@@ -121,7 +121,7 @@ public class DataStore extends AppCompatActivity {
                 public boolean onMenuItemClick(MenuItem item) {
 
 
-                    if(item.getItemId() == R.id.Logout)
+                    if(item.getItemId() == R.id.Exit)
                     {
                         Dialog dialog = new Dialog(DataStore.this);
                         dialog.setContentView(R.layout.dialogview);

@@ -2,6 +2,7 @@ package com.example.firebaselecture;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,6 +59,35 @@ public class MyAdpater extends BaseAdapter {
         sname.setText( data.get("name").toString());
         snum.setText( data.get("number").toString());
         email.setText( data.get("Email id").toString());
+
+
+
+        // data edit-delete karava mate & complete thay gaya  bad main page ma aava mate
+//        name.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//
+//                context.startActivity(new Intent(context, Update.class)
+//                        .putExtra("name", name.getText())
+//                        .putExtra("num", num.getText())
+//                        .putExtra("cid", datalist.get(position).getId())
+//                        .putExtra("userid", uid));
+//
+//
+//            }
+//        });
+
+        sname.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                dataStore.startActivity(new Intent(dataStore, Update.class)
+                        .putExtra("name",sname.getText())
+                        .putExtra("number",snum.getText())
+                        .putExtra("Email id",email.getText()));
+            }
+        });
 
 
         return vv;

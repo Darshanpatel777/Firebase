@@ -51,12 +51,6 @@ public class Addnew extends AppCompatActivity {
 
                 String key = myref.getKey();
 
-                myref.child("name").setValue(name.getText().toString());
-                myref.child("number").setValue(phone.getText().toString());
-                myref.child("Email id").setValue(emailid.getText().toString());
-                myref.child("key").setValue(key);
-
-
                 // Retrieve the phone number input from the user
                 String email = emailid.getText().toString();
                 //email required check
@@ -78,12 +72,21 @@ public class Addnew extends AppCompatActivity {
                     return;
                 }
 
+                myref.child("name").setValue(name.getText().toString());
+                myref.child("number").setValue(phone.getText().toString());
+                myref.child("Email id").setValue(emailid.getText().toString());
+                myref.child("key").setValue(key);
+
+
+
+
 
                 if (!name.getText().toString().isEmpty() && !phone.getText().toString().isEmpty() && !emailid.getText().toString().isEmpty())
                 {
                     startActivity(new Intent(Addnew.this,DataStore.class));
                     finish();
                 }
+
                 else
                 {
                     Toast.makeText(Addnew.this, "please fill date", Toast.LENGTH_SHORT).show();

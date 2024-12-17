@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -46,10 +47,25 @@ public class Home_page extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
+
+                // Retrieve the phone number input from the user
+                String email = name.getText().toString();
+                //email required check
+                if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
+                {
+                    name.setError("Please enter a valid email address");
+                    return;
+                }
+
+
+
+
                 if(!name.getText().toString().isEmpty() && !crtpass.getText().toString().isEmpty())
                 {
 
                     signup(name.getText().toString(),crtpass.getText().toString());
+
 
                     startActivity(new Intent(Home_page.this,MainActivity.class));
                     finish();

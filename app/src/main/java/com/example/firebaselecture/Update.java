@@ -17,6 +17,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -25,6 +26,8 @@ public class Update extends AppCompatActivity {
 
     TextInputEditText oldname, oldEmailId, oldnum;
     Button cancel, save, delete;
+    private FirebaseAuth mAuth;
+    DatabaseReference myref;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -39,14 +42,24 @@ public class Update extends AppCompatActivity {
         cancel = findViewById(R.id.cancel);
         save = findViewById(R.id.sav);
         delete = findViewById(R.id.delete);
+        mAuth = FirebaseAuth.getInstance();
 
 
         int userid = getIntent().getIntExtra("userid", 60);
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+
+                DatabaseReference myref = database.getReference("user");
+
+                startActivity(new Intent(Update.this, DataStore.class)
+                        .putExtra("userid",userid));
+
+                finish();
 
             }
         });
@@ -105,16 +118,6 @@ public class Update extends AppCompatActivity {
     }
 }
 
-//    // edit data save karva
-//    save.setOnClickListener(new View.OnClickListener() {
-//        @Override
-//        public void onClick(View v) {
-//            MyDatabase db = new MyDatabase(Update.this);
-//            db.editdata(oldname.getText().toString(), oldnum.getText().toString(), cid);
-//            startActivity(new Intent(Update.this, HomePage.class)
-//                    .putExtra("userid", userid));
-//            finish();
-//        }
-//    });
+
 
 

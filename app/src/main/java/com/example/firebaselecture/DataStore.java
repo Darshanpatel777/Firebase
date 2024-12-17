@@ -29,9 +29,8 @@ import java.util.HashMap;
 
 public class DataStore extends AppCompatActivity {
 
-    TextView txtname, txtemail, txtnumber;
     FloatingActionButton add,pop;
-    ListView list;
+    ListView list1;
     private FirebaseAuth mAuth;
 
 
@@ -44,7 +43,7 @@ public class DataStore extends AppCompatActivity {
         setContentView(R.layout.activity_data_store);
 
         add = findViewById(R.id.add);
-        list = findViewById(R.id.list);
+        list1 = findViewById(R.id.list1);
         pop = findViewById(R.id.pop);
         mAuth = FirebaseAuth.getInstance();
 
@@ -88,7 +87,7 @@ public class DataStore extends AppCompatActivity {
                         datalist.add(item);
 
                         MyAdpater adpater = new MyAdpater(DataStore.this, datalist);
-                        list.setAdapter(adpater);
+                        list1.setAdapter(adpater);
                     }
                 } else {
                     Toast.makeText(DataStore.this, "Data not found", Toast.LENGTH_SHORT).show();

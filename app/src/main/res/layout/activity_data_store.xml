@@ -59,7 +59,7 @@
 
     <ListView
 
-        android:id="@+id/list"
+        android:id="@+id/list1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="108sp">
@@ -72,9 +72,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="3dp"
-        android:backgroundTint="#5157D9"
+        android:backgroundTint="#575EF4"
         android:src="@drawable/add"
-        app:layout_constraintBottom_toBottomOf="@+id/list"
+        app:layout_constraintBottom_toBottomOf="@+id/list1"
         app:layout_constraintEnd_toEndOf="parent"
         tools:ignore="MissingConstraints" />
 

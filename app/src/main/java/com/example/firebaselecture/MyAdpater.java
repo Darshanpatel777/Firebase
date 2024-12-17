@@ -61,23 +61,6 @@ public class MyAdpater extends BaseAdapter {
         email.setText( data.get("Email id").toString());
 
 
-
-        // data edit-delete karava mate & complete thay gaya  bad main page ma aava mate
-//        name.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//
-//                context.startActivity(new Intent(context, Update.class)
-//                        .putExtra("name", name.getText())
-//                        .putExtra("num", num.getText())
-//                        .putExtra("cid", datalist.get(position).getId())
-//                        .putExtra("userid", uid));
-//
-//
-//            }
-//        });
-
         sname.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

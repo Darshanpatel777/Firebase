@@ -79,8 +79,6 @@ public class Addnew extends AppCompatActivity {
 
 
 
-
-
                 if (!name.getText().toString().isEmpty() && !phone.getText().toString().isEmpty() && !emailid.getText().toString().isEmpty())
                 {
                     startActivity(new Intent(Addnew.this,DataStore.class));

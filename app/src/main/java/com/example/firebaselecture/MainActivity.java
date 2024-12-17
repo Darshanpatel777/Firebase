@@ -4,6 +4,7 @@ package com.example.firebaselecture;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -60,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
         google = findViewById(R.id.bt_sign_in);
         mail = findViewById(R.id.mail);
         pass = findViewById(R.id.pass);
+
+
 
 //        btn = findViewById(R.id.btn);
 
@@ -139,11 +142,14 @@ public class MainActivity extends AppCompatActivity {
 
 
         GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken("438431947620-ecpi41uk3dhhf4mv8g8q993k3vs49ltm.apps.googleusercontent.com")
+                .requestIdToken("16575743123-kaai7c8ecvk7ljck3k6r30ao3o6fsd2a.apps.googleusercontent.com")
                 .requestEmail()
                 .build();
 
         googleSignInClient = GoogleSignIn.getClient(MainActivity.this, googleSignInOptions);
+
+
+
 
 // google Sign in
         google.setOnClickListener(new View.OnClickListener() {
@@ -178,10 +184,6 @@ public class MainActivity extends AppCompatActivity {
                 if(!mail.getText().toString().isEmpty() && !pass.getText().toString().isEmpty())
                 {
                     oldlogin(mail.getText().toString(),pass.getText().toString());
-//
-                    Space_Screen.edit.putBoolean("status", true);
-                    Space_Screen.edit.putInt("uid",0);
-                    Space_Screen.edit.apply();
 
                     startActivity(new Intent(MainActivity.this,DataStore.class)
                             .putExtra("userid",0));
@@ -268,8 +270,15 @@ public class MainActivity extends AppCompatActivity {
                     Log.d("---d---", "signInWithEmail:success");
 
                     FirebaseUser user = mAuth.getCurrentUser();
+
+                    Space_Screen.edit.putBoolean("status", true);
+                    Space_Screen.edit.putInt("uid",0);
+                    Space_Screen.edit.apply();
+
                     Toast.makeText(MainActivity.this, "Authentication success.",
                             Toast.LENGTH_SHORT).show();
+
+
 
                 } else {
                     // If sign in fails, display a message to the user.

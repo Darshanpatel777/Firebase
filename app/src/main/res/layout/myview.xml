@@ -2,43 +2,53 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="5dp"
+    android:background="@color/white"
     android:orientation="vertical">
 
-
-    <TextView
-        android:id="@+id/sname"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#838080"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:layout_margin="0.5dp"
-        android:textSize="25sp">
+        android:orientation="vertical">
 
-    </TextView>
+        <TextView
+            android:id="@+id/sname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#838080"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="5dp"
+            android:textSize="25sp">
 
-    <TextView
-        android:id="@+id/snum"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:background="#A9A1A1"
-        android:textStyle="bold"
-        android:layout_margin="0.5dp"
-        android:textSize="25sp">
+        </TextView>
 
-    </TextView>
+        <TextView
+            android:id="@+id/snum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:background="#A9A1A1"
+            android:textStyle="bold"
+            android:layout_margin="0.5dp"
+            android:textSize="25sp">
 
-    <TextView
-        android:id="@+id/email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:background="#A9A1A1"
-        android:textStyle="bold"
-        android:layout_margin="0.5dp"
-        android:textSize="20sp">
+        </TextView>
 
-    </TextView>
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:background="#A9A1A1"
+            android:textStyle="bold"
+            android:layout_margin="0.5dp"
+            android:textSize="20sp">
+
+        </TextView>
+
+    </LinearLayout>
+
+
 
 </LinearLayout>

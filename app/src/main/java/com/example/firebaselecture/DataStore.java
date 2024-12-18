@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.PopupMenu;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +31,7 @@ import java.util.HashMap;
 public class DataStore extends AppCompatActivity {
 
     FloatingActionButton add,pop;
+    SearchView search;
     ListView list1;
     private FirebaseAuth mAuth;
 
@@ -45,6 +47,7 @@ public class DataStore extends AppCompatActivity {
         add = findViewById(R.id.add);
         list1 = findViewById(R.id.list1);
         pop = findViewById(R.id.pop);
+//        search = findViewById(R.id.search);
         mAuth = FirebaseAuth.getInstance();
 
         int userid = getIntent().getIntExtra("userid", 5);
@@ -59,6 +62,20 @@ public class DataStore extends AppCompatActivity {
                         .putExtra("userid", userid));
             }
         });
+
+
+
+//        search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                return true;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                return false;
+//            }
+//        });
 
 
         //store data show karva mate

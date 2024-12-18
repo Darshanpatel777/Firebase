@@ -68,7 +68,8 @@ public class MyAdpater extends BaseAdapter {
                 dataStore.startActivity(new Intent(dataStore, Update.class)
                         .putExtra("name",sname.getText())
                         .putExtra("number",snum.getText())
-                        .putExtra("Email id",email.getText()));
+                        .putExtra("Email id",email.getText())
+                        .putExtra("key",data.get("key").toString()));
             }
         });
 

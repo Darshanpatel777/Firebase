@@ -45,20 +45,28 @@ public class Update extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
 
-        int userid = getIntent().getIntExtra("userid", 60);
+//        int userid = getIntent().getIntExtra("userid", 60);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+        String updatename = getIntent().getStringExtra("name");
+        String updatenumber = getIntent().getStringExtra("number");
+        String updateEmailid = getIntent().getStringExtra("Email id");
+        String key = getIntent().getStringExtra("key");
+
+
+        oldname.setText(updatename);
+        oldnum.setText(updatenumber);
+        oldEmailId.setText(updateEmailid);
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                DatabaseReference myref = database.getReference("user").child(key);
 
-                DatabaseReference myref = database.getReference("user");
 
-                startActivity(new Intent(Update.this, DataStore.class)
-                        .putExtra("userid",userid));
-
+                startActivity(new Intent(Update.this, DataStore.class));
                 finish();
 
             }
@@ -69,8 +77,7 @@ public class Update extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(Update.this, DataStore.class)
-                        .putExtra("userid", userid));
+                startActivity(new Intent(Update.this, DataStore.class));
 
                 finish();
             }
@@ -96,8 +103,9 @@ public class Update extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
 
-                        startActivity(new Intent(Update.this, DataStore.class)
-                                .putExtra("userid", userid));
+
+
+                        startActivity(new Intent(Update.this, DataStore.class));
 
                         finish();
                     }

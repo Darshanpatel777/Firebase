@@ -36,7 +36,7 @@
         android:layout_marginRight="25sp"
         android:hint="Name"
         android:gravity="center"
-        android:textColorHint="@color/black"
+        android:textColorHint="@color/white"
         app:boxCornerRadiusBottomEnd="20sp"
         app:boxCornerRadiusBottomStart="20sp"
         app:boxCornerRadiusTopEnd="20sp"
@@ -50,7 +50,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textColor="@color/black"
             android:id="@+id/Newname"/>
 
 
@@ -65,7 +66,7 @@
         android:layout_marginRight="25sp"
         android:hint="Email id"
         android:gravity="center"
-        android:textColorHint="@color/black"
+        android:textColorHint="@color/white"
         app:boxCornerRadiusBottomEnd="20sp"
         app:boxCornerRadiusBottomStart="20sp"
         app:boxCornerRadiusTopEnd="20sp"
@@ -79,7 +80,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textColor="@color/black"
             android:id="@+id/NewEmailId"/>
 
 
@@ -95,7 +97,7 @@
         android:layout_marginRight="25sp"
         android:hint="Phone"
         android:gravity="center"
-        android:textColorHint="@color/black"
+        android:textColorHint="@color/white"
         app:boxCornerRadiusBottomEnd="20sp"
         app:boxCornerRadiusBottomStart="20sp"
         app:boxCornerRadiusTopEnd="20sp"
@@ -108,8 +110,9 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:inputType="number"
+            android:textStyle="bold"
             android:id="@+id/Newnum"/>
 
     </com.google.android.material.textfield.TextInputLayout>

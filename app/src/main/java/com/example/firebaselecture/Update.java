@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -63,11 +64,26 @@ public class Update extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                DatabaseReference myref = database.getReference("user").child(key);
+
+                String dname = oldname.getText().toString();
+                String dnumber = oldnum.getText().toString();
+                String deamilid = oldEmailId.getText().toString();
+
+                if(!dname.isEmpty() && !dnumber.isEmpty() && !deamilid.isEmpty())
+                {
+                    DatabaseReference myref = database.getReference("user").child(key);
+
+                    myref.child("name").setValue(dname);
+                    myref.child("number").setValue(dnumber);
+                    myref.child("Email id").setValue(deamilid);
 
 
-                startActivity(new Intent(Update.this, DataStore.class));
-                finish();
+                    startActivity(new Intent(Update.this, DataStore.class));
+                    finish();
+                }else {
+                    Toast.makeText(Update.this, "please fill a data", Toast.LENGTH_SHORT).show();
+                }
+
 
             }
         });
@@ -78,7 +94,6 @@ public class Update extends AppCompatActivity {
             public void onClick(View v) {
 
                 startActivity(new Intent(Update.this, DataStore.class));
-
                 finish();
             }
         });
@@ -99,15 +114,18 @@ public class Update extends AppCompatActivity {
 
                 tex1.getText();
 
+                //Store data delete karva mate
                 yes1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 
+                //  Store data delete karva mare --> key,value
+                DatabaseReference myRef = database.getReference("user").child(key);
+                myRef.removeValue();
 
+                startActivity(new Intent(Update.this, DataStore.class));
+                finish();
 
-                        startActivity(new Intent(Update.this, DataStore.class));
-
-                        finish();
                     }
                 });
                 no1.setOnClickListener(new View.OnClickListener() {

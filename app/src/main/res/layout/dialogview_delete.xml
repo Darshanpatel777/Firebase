@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="10sp"
-            android:text="Do you Want to delete contact"
+            android:text="Do You Want To Delete Contact"
             android:textColor="@color/black"
             android:textSize="25sp"
             android:textStyle="bold">

@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A3D0EB"
+    android:background="#ffffff"
     tools:context=".DataStore">
 
 
@@ -14,9 +14,9 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="#6F6969"
         android:gravity="center"
-        android:text="All contacts"
+        android:text="All Contacts"
         android:textColor="@color/black"
         android:textSize="35sp"
         android:textStyle="bold"
@@ -33,14 +33,14 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3">
 
 
-        <androidx.appcompat.widget.SearchView
+        <SearchView
             android:id="@+id/search"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_gravity="center"
             android:layout_margin="5dp"
             android:layout_weight="0.5"
-            android:background="@color/black"
+            android:background="#000000"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

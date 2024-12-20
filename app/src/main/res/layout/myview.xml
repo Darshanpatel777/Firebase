@@ -15,7 +15,7 @@
             android:id="@+id/sname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#838080"
+            android:background="#C7A84E"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:layout_marginTop="5dp"
@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:background="#ADA3A3"
+            android:background="#FFD868"
             android:textStyle="bold"
             android:layout_margin="0.5dp"
             android:textSize="25sp">
@@ -40,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:background="#6B6363"
+            android:background="#F2D16B"
             android:textStyle="bold"
             android:layout_margin="0.5dp"
             android:textSize="20sp">

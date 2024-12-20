@@ -3,6 +3,7 @@ package com.example.firebaselecture;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -85,9 +86,15 @@ public class DataStore extends AppCompatActivity {
 
                         datalist.add(userdata);
 
-                        MyAdpater adpater = new MyAdpater(DataStore.this, datalist);
-                        list1.setAdapter(adpater);
                     }
+                    datalist.sort(new Comparator<HashMap<Object, Object>>() {
+                        @Override
+                        public int compare(HashMap<Object, Object> o1, HashMap<Object, Object> o2) {
+                            return o1.get("name").toString().compareTo(o2.get("name").toString());
+                        }
+                    });
+                    MyAdpater adpater = new MyAdpater(DataStore.this, datalist);
+                    list1.setAdapter(adpater);
                 } else {
                     Toast.makeText(DataStore.this, "Data not found", Toast.LENGTH_SHORT).show();
                 }
@@ -103,9 +110,7 @@ public class DataStore extends AppCompatActivity {
         myref.addValueEventListener(postListener);
 
 
-
         ArrayList<HashMap<Object, Object>> searchlist = new ArrayList();
-
 
 
         search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -145,39 +150,6 @@ public class DataStore extends AppCompatActivity {
 
 
 
-
-        // Sort the data alphabetically by name
-//        datalist.sort(new Comparator<HashMap<Object, Object>>() {
-//            @Override
-//            public int compare(HashMap<Object, Object> o1, HashMap<Object, Object> o2) {
-//                String name1 = (String) o1.get("name");
-//                String name2 = (String) o2.get("name");
-//                return name1.compareToIgnoreCase(name2); // Case insensitive comparison
-//            }
-//        });
-//
-//        // Set the adapter with sorted data
-//        MyAdpater adpater = new MyAdpater(DataStore.this, datalist);
-//        list1.setAdapter(adpater);
-//
-//    } else {
-//        Toast.makeText(DataStore.this, "Data not found", Toast.LENGTH_SHORT).show();
-//    }
-//
-//}
-
-
-
-
-
-
-
-
-
-
-
-
-
 //     pop menu open karava
         pop.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -192,7 +164,7 @@ public class DataStore extends AppCompatActivity {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
 
-                        if (item.getItemId() == R.id.Exit) {
+                        if (item.getItemId() == R.id.logout) {
 
                             Dialog dialog = new Dialog(DataStore.this);
                             dialog.setContentView(R.layout.dialogview);
@@ -225,12 +197,11 @@ public class DataStore extends AppCompatActivity {
                                     dialog.dismiss();
                                 }
                             });
-                        } else if (item.getItemId() == R.id.Callhistory) {
-
-                            Toast.makeText(DataStore.this, "Callhistory", Toast.LENGTH_SHORT).show();
                         } else if (item.getItemId() == R.id.setting) {
 
-                            Toast.makeText(DataStore.this, "setting", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(Settings.ACTION_SECURITY_SETTINGS);
+                            startActivity(intent);
+//                            Toast.makeText(DataStore.this, "setting", Toast.LENGTH_SHORT).show();
 
                         } else if (item.getItemId() == R.id.Helpfeedback) {
 

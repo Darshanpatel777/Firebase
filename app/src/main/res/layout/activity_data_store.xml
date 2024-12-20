@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:background="#FAEBBE"
     tools:context=".DataStore">
 
 
@@ -14,7 +14,7 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#6F6969"
+        android:background="#EDC387"
         android:gravity="center"
         android:text="All Contacts"
         android:textColor="@color/black"
@@ -40,7 +40,7 @@
             android:layout_gravity="center"
             android:layout_margin="5dp"
             android:layout_weight="0.5"
-            android:background="#000000"
+            android:background="#212123"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -48,7 +48,7 @@
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#575EF4"
+            android:backgroundTint="#5C5E64"
             android:id="@+id/pop"
             android:src="@drawable/dot"
             android:layout_margin="3dp"
@@ -72,7 +72,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="3dp"
-        android:backgroundTint="#575EF4"
+        android:backgroundTint="#5C5E64"
         android:src="@drawable/add"
         app:layout_constraintBottom_toBottomOf="@+id/list1"
         app:layout_constraintEnd_toEndOf="parent"

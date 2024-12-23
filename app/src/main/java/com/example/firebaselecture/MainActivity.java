@@ -185,6 +185,11 @@ public class MainActivity extends AppCompatActivity {
                 {
                     oldlogin(mail.getText().toString(),pass.getText().toString());
 
+                    Space_Screen.edit.putBoolean("status", true);
+                    Space_Screen.edit.putInt("uid",0);
+                    Space_Screen.edit.apply();
+
+
                     startActivity(new Intent(MainActivity.this,DataStore.class)
                             .putExtra("userid",0));
                     finish();

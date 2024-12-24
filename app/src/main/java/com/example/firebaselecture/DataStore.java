@@ -56,12 +56,14 @@ public class DataStore extends AppCompatActivity {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
+
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 startActivity(new Intent(DataStore.this, Addnew.class)
                         .putExtra("userid", userid));
+                finish();
             }
         });
 
@@ -86,6 +88,7 @@ public class DataStore extends AppCompatActivity {
 
                         datalist.add(userdata);
 
+
                     }
                     datalist.sort(new Comparator<HashMap<Object, Object>>() {
                         @Override
@@ -93,6 +96,7 @@ public class DataStore extends AppCompatActivity {
                             return o1.get("name").toString().compareTo(o2.get("name").toString());
                         }
                     });
+
                     MyAdpater adpater = new MyAdpater(DataStore.this, datalist);
                     list1.setAdapter(adpater);
                 } else {
@@ -201,7 +205,7 @@ public class DataStore extends AppCompatActivity {
 
                             Intent intent = new Intent(Settings.ACTION_SECURITY_SETTINGS);
                             startActivity(intent);
-//                            Toast.makeText(DataStore.this, "setting", Toast.LENGTH_SHORT).show();
+                            finish();
 
                         } else if (item.getItemId() == R.id.Helpfeedback) {
 
@@ -217,6 +221,7 @@ public class DataStore extends AppCompatActivity {
 
 
     }
+
 }
 
 

@@ -56,7 +56,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:id="@+id/mail"
-            android:inputType="text"
+            android:inputType="textEmailAddress"
             android:layout_height="wrap_content"
             android:textColor="#ffffff" />
 
@@ -79,6 +79,8 @@
         app:boxCornerRadiusBottomStart="20sp"
         app:boxCornerRadiusTopEnd="20sp"
         app:boxStrokeWidth="2dp"
+        app:counterMaxLength="6"
+        app:counterEnabled="true"
         app:boxCornerRadiusTopStart="20sp"
         app:boxCornerRadiusBottomEnd="20sp">
 

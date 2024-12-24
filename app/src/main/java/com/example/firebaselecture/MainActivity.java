@@ -141,6 +141,9 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
+
         GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken("16575743123-kaai7c8ecvk7ljck3k6r30ao3o6fsd2a.apps.googleusercontent.com")
                 .requestEmail()
@@ -159,6 +162,29 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = googleSignInClient.getSignInIntent();
                 // Start activity for result
                 startActivityForResult(intent, 100);
+
+//                // Retrieve the phone number input from the user
+//                String email = mail.getText().toString();
+//                //email required check
+//                if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
+//                {
+//                    mail.setError("Please enter a valid email address");
+//                    return;
+//                }
+//
+//
+//                //password  required check
+//                String password = pass.getText().toString();
+//                if (password.isEmpty()) {
+//                    pass.setError("passwoed if required");
+//                    return;
+//                }
+//                else if (password.length() != 6) // password 6 digit ma j aava aena mate
+//                {
+//                    pass.setError("password  cannot exceed 6 digits");
+//                    return;
+//                }
+
 
 
             }
@@ -181,18 +207,41 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                // Retrieve the phone number input from the user
+                String email = mail.getText().toString();
+                //email required check
+                if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
+                {
+                    mail.setError("Please enter a valid email address");
+                    return;
+                }
+
+
+                //password  required check
+                String password = pass.getText().toString();
+                if (password.isEmpty()) {
+                    pass.setError("passwoed if required");
+                    return;
+                }
+                else if (password.length() != 6) // password 6 digit ma j aava aena mate
+                {
+                    pass.setError("password  cannot exceed 6 digits");
+                    return;
+                }
+
+
                 if(!mail.getText().toString().isEmpty() && !pass.getText().toString().isEmpty())
                 {
                     oldlogin(mail.getText().toString(),pass.getText().toString());
 
-                    Space_Screen.edit.putBoolean("status", true);
-                    Space_Screen.edit.putInt("uid",0);
-                    Space_Screen.edit.apply();
+//                    Space_Screen.edit.putBoolean("status", true);
+//                    Space_Screen.edit.putInt("uid",0);
+//                    Space_Screen.edit.apply();
 
 
-                    startActivity(new Intent(MainActivity.this,DataStore.class)
-                            .putExtra("userid",0));
-                    finish();
+//                    startActivity(new Intent(MainActivity.this,DataStore.class)
+//                            .putExtra("userid",0));
+//                    finish();
 
                 }
                 else
@@ -279,6 +328,10 @@ public class MainActivity extends AppCompatActivity {
                     Space_Screen.edit.putBoolean("status", true);
                     Space_Screen.edit.putInt("uid",0);
                     Space_Screen.edit.apply();
+
+
+                    startActivity(new Intent(MainActivity.this,DataStore.class));
+                    finish();
 
                     Toast.makeText(MainActivity.this, "Authentication success.",
                             Toast.LENGTH_SHORT).show();

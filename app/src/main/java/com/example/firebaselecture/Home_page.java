@@ -26,7 +26,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class Home_page extends AppCompatActivity {
 
     Button sing_up2;
-    TextInputEditText name,crtpass;
+    TextInputEditText name, crtpass, conpass;
     private FirebaseAuth mAuth;
 
     @SuppressLint("MissingInflatedId")
@@ -36,42 +36,51 @@ public class Home_page extends AppCompatActivity {
 
         setContentView(R.layout.activity_home_page);
 
-        sing_up2  = findViewById(R.id.sing_up2);
+        sing_up2 = findViewById(R.id.sing_up2);
         name = findViewById(R.id.name);
         crtpass = findViewById(R.id.crtpass);
+        conpass = findViewById(R.id.conpass);
         mAuth = FirebaseAuth.getInstance();
-
 
 
         sing_up2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                if (!name.getText().toString().isEmpty() &&
+                        !crtpass.getText().toString().isEmpty() && !conpass.getText().toString().isEmpty()) {
+
+                    String email = name.getText().toString();
+                    String password = crtpass.getText().toString();
+                    String conpassword = conpass.getText().toString();
 
 
-                // Retrieve the phone number input from the user
-                String email = name.getText().toString();
-                //email required check
-                if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
-                {
-                    name.setError("Please enter a valid email address");
-                    return;
-                }
+//                    ## email check
+                    if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                        name.setError("Please Enter a Valid Email Address");
+                        return;
+                    }
 
+//                    password in 6 character
+                    if(password.length() != 6 && conpassword.length() !=6)
+                    {
+                        Toast.makeText(Home_page.this, "Password  Cannot Exceed 6 Digits", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
 
+//                    password ane  conpassword same hoy to
+                    if(password.equals(conpassword)){
+                        signup(email,password);
 
+                        startActivity(new Intent(Home_page.this, MainActivity.class));
+                        finish();
 
-                if(!name.getText().toString().isEmpty() && !crtpass.getText().toString().isEmpty())
-                {
+                    }
+                    else {
+                        Toast.makeText(Home_page.this, "Passwords Do Not Match", Toast.LENGTH_SHORT).show();
+                    }
 
-                    signup(name.getText().toString(),crtpass.getText().toString());
-
-
-                    startActivity(new Intent(Home_page.this,MainActivity.class));
-                    finish();
-                }
-                else
-                {
+                } else {
                     Toast.makeText(Home_page.this, "Please Enter You Data", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -91,7 +100,6 @@ public class Home_page extends AppCompatActivity {
                     FirebaseUser user = mAuth.getCurrentUser();
                     Toast.makeText(Home_page.this, "Authentication Completed",
                             Toast.LENGTH_SHORT).show();
-
 
 
                 } else {

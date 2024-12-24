@@ -45,7 +45,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:id="@+id/name"
-            android:inputType="text"
+            android:inputType="textEmailAddress"
             android:layout_height="wrap_content"
             android:textColor="#000000" />
 
@@ -61,13 +61,15 @@
         app:boxStrokeColor="#F00808"
         android:textColorHint="@color/black"
         android:layout_marginRight="25sp"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="25sp"
+        android:layout_marginTop="18sp"
         app:endIconMode="password_toggle"
         app:startIconDrawable="@drawable/padlockcc"
         app:boxCornerRadiusBottomStart="20sp"
         app:boxCornerRadiusTopEnd="20sp"
         app:boxStrokeWidth="2dp"
+        app:counterMaxLength="6"
+        app:counterEnabled="true"
         app:boxCornerRadiusTopStart="20sp"
         app:boxCornerRadiusBottomEnd="20sp">
 
@@ -83,6 +85,35 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint=" Confirm Password"
+        android:gravity="center"
+        app:boxStrokeColor="#F00808"
+        android:textColorHint="@color/black"
+        android:layout_marginRight="25sp"
+        android:layout_marginLeft="25sp"
+        app:endIconMode="password_toggle"
+        app:startIconDrawable="@drawable/unlock"
+        app:boxCornerRadiusBottomStart="20sp"
+        app:boxCornerRadiusTopEnd="20sp"
+        app:boxStrokeWidth="2dp"
+        app:counterMaxLength="6"
+        app:counterEnabled="true"
+        app:boxCornerRadiusTopStart="20sp"
+        app:boxCornerRadiusBottomEnd="20sp">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:id="@+id/conpass"
+            android:inputType="textPassword"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"/>
+
+
+    </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:layout_width="match_parent"

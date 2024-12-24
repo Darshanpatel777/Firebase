@@ -51,9 +51,7 @@ public class Addnew extends AppCompatActivity {
 
                 String key = myref.getKey();
 
-                // Retrieve the phone number input from the user
                 String email = emailid.getText().toString();
-                //email required check
                 if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
                 {
                     emailid.setError("Please enter a valid email address");
@@ -79,7 +77,9 @@ public class Addnew extends AppCompatActivity {
 
 
 
-                if (!name.getText().toString().isEmpty() && !phone.getText().toString().isEmpty() && !emailid.getText().toString().isEmpty())
+                if (!name.getText().toString().isEmpty() &&
+                        !phone.getText().toString().isEmpty() &&
+                        !emailid.getText().toString().isEmpty())
                 {
                     startActivity(new Intent(Addnew.this,DataStore.class));
                     finish();
@@ -94,6 +94,15 @@ public class Addnew extends AppCompatActivity {
 
 
     }
+
+
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent(this, DataStore.class);
+        startActivity(i);
+        finish();
+    }
+
 }
 
 

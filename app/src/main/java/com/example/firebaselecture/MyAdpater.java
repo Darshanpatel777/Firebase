@@ -70,6 +70,9 @@ public class MyAdpater extends BaseAdapter {
                         .putExtra("number",snum.getText())
                         .putExtra("Email id",email.getText())
                         .putExtra("key",data.get("key").toString()));
+            dataStore.finish();
+
+
             }
         });
 

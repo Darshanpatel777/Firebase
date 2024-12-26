@@ -2,11 +2,10 @@ package com.example.firebaselecture;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
-import android.content.ContentValues;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,11 +14,7 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
@@ -31,7 +26,7 @@ public class Update extends AppCompatActivity {
 
 
     TextInputEditText oldname, oldEmailId, oldnum;
-    Button cancel, save, delete;
+    Button cancel, save, delete, Whatsapp, Skype;
     private FirebaseAuth mAuth;
     DatabaseReference myref;
     FloatingActionButton pop1;
@@ -49,9 +44,14 @@ public class Update extends AppCompatActivity {
         oldnum = findViewById(R.id.Newnum);
         cancel = findViewById(R.id.cancel);
         save = findViewById(R.id.sav);
+        Whatsapp = findViewById(R.id.Whatsapp);
+        Skype = findViewById(R.id.Skype);
         pop1 = findViewById(R.id.pop1);
         delete = findViewById(R.id.delete);
         mAuth = FirebaseAuth.getInstance();
+
+
+
 
 
 //        int userid = getIntent().getIntExtra("userid", 60);
@@ -77,8 +77,7 @@ public class Update extends AppCompatActivity {
                 String dnumber = oldnum.getText().toString();
                 String deamilid = oldEmailId.getText().toString();
 
-                if(!dname.isEmpty() && !dnumber.isEmpty() && !deamilid.isEmpty())
-                {
+                if (!dname.isEmpty() && !dnumber.isEmpty() && !deamilid.isEmpty()) {
                     DatabaseReference myref = database.getReference("user").child(key);
 
                     myref.child("name").setValue(dname);
@@ -88,7 +87,7 @@ public class Update extends AppCompatActivity {
 
                     startActivity(new Intent(Update.this, DataStore.class));
                     finish();
-                }else {
+                } else {
                     Toast.makeText(Update.this, "please fill a data", Toast.LENGTH_SHORT).show();
                 }
 
@@ -106,6 +105,36 @@ public class Update extends AppCompatActivity {
             }
         });
 
+        Whatsapp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent whatsappIntent = new Intent(Intent.ACTION_SEND);
+                whatsappIntent.setType("text/plain");
+                String sharebody = " name :-" + oldname.getText().toString() + "\n" +
+                        "number:-" + oldnum.getText().toString() + "\n" +
+                        "Email id :-" + oldEmailId.getText().toString();
+                whatsappIntent.setPackage("com.whatsapp");
+                whatsappIntent.putExtra(Intent.EXTRA_TEXT, sharebody);
+                Update.this.startActivity(whatsappIntent);
+
+            }
+        });
+
+
+        Skype.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+              
+                    Uri marketUri = Uri.parse("market://details?id=com.skype.raider");
+                    Intent myIntent = new Intent(Intent.ACTION_VIEW, marketUri);
+                    myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    Update.this.startActivity(myIntent);
+                    return;
+
+            }
+        });
 
 
         pop1.setOnClickListener(new View.OnClickListener() {
@@ -121,7 +150,7 @@ public class Update extends AppCompatActivity {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
 
-                        if(item.getItemId() == R.id.delete){
+                        if (item.getItemId() == R.id.delete) {
 
                             Dialog dialog = new Dialog(Update.this);
                             dialog.setContentView(R.layout.dialogview_delete);
@@ -144,7 +173,7 @@ public class Update extends AppCompatActivity {
                                     myRef.removeValue();
 
                                     startActivity(new Intent(Update.this, DataStore.class));
-                                  finish();
+                                    finish();
 
                                 }
                             });
@@ -155,13 +184,13 @@ public class Update extends AppCompatActivity {
                                     dialog.dismiss();
                                 }
                             });
-                        }else if(item.getItemId() == R.id.share){
+                        } else if (item.getItemId() == R.id.share) {
 
 
                             Intent intent = new Intent(Intent.ACTION_SEND);
-                            String shareBody = "Name :-"+oldname.getText().toString() + "\n"+
-                                    "Number :-"+oldnum.getText().toString() + "\n"+
-                                    "Email id :-"+oldEmailId.getText().toString();
+                            String shareBody = "Name :-" + oldname.getText().toString() + "\n" +
+                                    "Number :-" + oldnum.getText().toString() + "\n" +
+                                    "Email id :-" + oldEmailId.getText().toString();
                             intent.setType("text/plain");
                             intent.putExtra(Intent.EXTRA_TEXT, shareBody);
                             Update.this.startActivity(Intent.createChooser(intent, ""));
@@ -172,11 +201,12 @@ public class Update extends AppCompatActivity {
                 });
             }
         });
-
-
-
-
-
+    }
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent(this, DataStore.class);
+        startActivity(i);
+        finish();
     }
 }
 

@@ -29,6 +29,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Locale;
 
 public class DataStore extends AppCompatActivity {
 
@@ -88,7 +89,6 @@ public class DataStore extends AppCompatActivity {
 
                         datalist.add(userdata);
 
-
                     }
                     datalist.sort(new Comparator<HashMap<Object, Object>>() {
                         @Override
@@ -139,8 +139,11 @@ public class DataStore extends AppCompatActivity {
 
                     if(sname.contains(newText) || snumber.contains(newText) || seamilid.contains(newText))
                     {
+
                         searchlist.add(data);
                     }
+
+
                 }
 
                 MyAdpater searchAdpater = new MyAdpater(DataStore.this,searchlist);
@@ -226,3 +229,11 @@ public class DataStore extends AppCompatActivity {
 
 
 
+
+
+//  datalist.sort(new Comparator<HashMap<Object, Object>>() {
+//    @Override
+//    public int compare(HashMap<Object, Object> o1, HashMap<Object, Object> o2) {
+//        return o1.get("name").toString().toUpperCase().compareTo(o2.get("name").toString());
+//    }
+//});

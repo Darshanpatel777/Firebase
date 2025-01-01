@@ -2,11 +2,13 @@ package com.example.firebaselecture;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.telephony.SmsManager;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,12 +19,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.io.File;
 
 public class Update extends AppCompatActivity {
 
@@ -130,12 +137,40 @@ public class Update extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-              
-                    Uri marketUri = Uri.parse("market://details?id=com.skype.raider");
-                    Intent myIntent = new Intent(Intent.ACTION_VIEW, marketUri);
-                    myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    Update.this.startActivity(myIntent);
-                    return;
+//                // Replace with your contact's Skype username or phone number
+//                String skypeUsername = "9409810017";  // Example format: "live:username"
+                final int REQUEST_SMS_PERMISSION = 1;
+
+//                    sendMessageToSkype(skypeUsername, "Hello, this is a test message!");
+                if (ContextCompat.checkSelfPermission(Update.this, android.Manifest.permission.SEND_SMS)
+                        != PackageManager.PERMISSION_GRANTED) {
+                    // Permission is not granted, request it
+                    ActivityCompat.requestPermissions(Update.this, new String[]{android.Manifest.permission.SEND_SMS}, REQUEST_SMS_PERMISSION);
+
+                }
+                else {
+                    Uri uri = Uri.parse("smsto:9409810017" );  // "smsto:" is used for SMS URI
+
+                    // Create an Intent to open the messaging app
+//                    Intent intent = new Intent(Intent.ACTION_SENDTO, uri);
+//                    intent.putExtra("sms_body", "Text"); // Add a default message to the message body
+//
+//                    // Start the activity to open the SMS app
+//                    startActivity(intent);
+
+//-----------------------------------------------------
+
+//                    String number = "8490087505";
+//                    String msg = "Text";
+//                    try {
+//                        SmsManager smsManager = SmsManager.getDefault();
+//                        smsManager.sendTextMessage(number, null, msg, null, null);
+//                        Toast.makeText(getApplicationContext(), "Message Sent", Toast.LENGTH_LONG).show();
+//                    } catch (Exception e) {
+//                        Log.d("=========", "onClick: " + e.getLocalizedMessage());
+//                        Toast.makeText(getApplicationContext(), "Some fields is Empty" + e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+//                    }
+                }
 
             }
         });
@@ -143,6 +178,7 @@ public class Update extends AppCompatActivity {
         massage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
 
             }
@@ -216,6 +252,20 @@ public class Update extends AppCompatActivity {
             }
         });
     }
+
+    // Send message to Skype via Intent
+    private void sendMessageToSkype(String skypeUsername, String message) {
+        // Create Skype URL to send message
+        String skypeUri = "skype:" + skypeUsername + "?chat&message=" + Uri.encode(message);
+
+        // Create intent to open Skype and send message
+        Intent skypeIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(skypeUri));
+        skypeIntent.setPackage("com.skype.raider");  // Ensure that it opens Skype
+
+        // Start the Skype app with the provided message
+        startActivity(skypeIntent);
+    }
+
     @Override
     public void onBackPressed() {
         Intent i = new Intent(this, DataStore.class);

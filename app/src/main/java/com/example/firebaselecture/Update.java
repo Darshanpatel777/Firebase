@@ -6,10 +6,12 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,7 +28,8 @@ public class Update extends AppCompatActivity {
 
 
     TextInputEditText oldname, oldEmailId, oldnum;
-    Button cancel, save, delete, Whatsapp, Skype;
+    Button cancel, save, delete;
+    ImageView Whatsapp, Skype,massage;
     private FirebaseAuth mAuth;
     DatabaseReference myref;
     FloatingActionButton pop1;
@@ -45,6 +48,7 @@ public class Update extends AppCompatActivity {
         cancel = findViewById(R.id.cancel);
         save = findViewById(R.id.sav);
         Whatsapp = findViewById(R.id.Whatsapp);
+        massage = findViewById(R.id.massage);
         Skype = findViewById(R.id.Skype);
         pop1 = findViewById(R.id.pop1);
         delete = findViewById(R.id.delete);
@@ -135,6 +139,16 @@ public class Update extends AppCompatActivity {
 
             }
         });
+
+        massage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+            }
+        });
+
+
 
 
         pop1.setOnClickListener(new View.OnClickListener() {
